@@ -1,3 +1,3 @@
 "# RollingView" 
 
-垂直滚动跑马灯效果的view
+鍨傜洿婊氬姩璺戦┈鐏晥鏋滅殑view
