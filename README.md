@@ -1,3 +1,1 @@
-"# RollingView" 
-
-垂直滚动跑马灯效果的view
+#RollingView## 用法xml：>```<com.infinite.rollingoverview.RollingOverView        android:background="@android:color/holo_red_light"        android:id="@+id/rollingView"        android:layout_marginTop="16dp"        app:textColor="@android:color/white"        app:textSize="16sp"        android:paddingLeft="8dp"        app:animationDuration="500"        app:flipInterval="2000"        android:layout_width="match_parent"        android:layout_height="50dp"/>```在activity中：>```view= (RollingOverView) findViewById(R.id.rollingView);        String[] content=new String[]{"From class android.widget.ViewAnimator ","比如我们正在开发一个看漫画的应用,","计算机软件及应用"};        view.setContents(content);        view.startFlipping();```
