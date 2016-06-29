@@ -18,6 +18,7 @@ public class RollingOverView extends ViewFlipper {
     private int mTextSize=18;
     private int mAnimDuration=500;
     private int mFlipInterval=2000;
+    private String[] mContents;
     public RollingOverView(Context context, AttributeSet attrs) {
         super(context, attrs);
         TypedArray array=context.obtainStyledAttributes(attrs,R.styleable.RollingOverView);
@@ -34,20 +35,7 @@ public class RollingOverView extends ViewFlipper {
     }
 
     public void setContents(String[] arrs){
-        if (arrs!=null&&arrs.length>0){
-            for(String str:arrs){
-                addChild(str);
-            }
-        }
-
-        Animation animationIn= AnimationUtils.loadAnimation(getContext(),R.anim.in_animation);
-        animationIn.setDuration(mAnimDuration);
-        setInAnimation(animationIn);
-
-        Animation animationOut= AnimationUtils.loadAnimation(getContext(),R.anim.out_animation);
-        animationOut.setDuration(mAnimDuration);
-        setOutAnimation(animationOut);
-        setFlipInterval(mFlipInterval);
+       mContents=arrs;
     }
 
     private void addChild(String content){
@@ -65,10 +53,48 @@ public class RollingOverView extends ViewFlipper {
     }
 
 
+    public void setContentTextColor(int color){
+        mTextColor=color;
+    }
+
+    public void setContentTextSize(int textSize){
+        mTextSize=textSize;
+    }
+
+    public void setAnimDuration(int millinseconds){
+        mAnimDuration=millinseconds;
+    }
+
+    public void setChildFlipInterval(int millinseconds){
+        mFlipInterval=millinseconds;
+    }
+
+    public void start(){
+        if (mContents!=null&&mContents.length>0){
+            for(String str:mContents){
+                addChild(str);
+            }
+        }
+
+        Animation animationIn= AnimationUtils.loadAnimation(getContext(),R.anim.in_animation);
+        animationIn.setDuration(mAnimDuration);
+        setInAnimation(animationIn);
+
+        Animation animationOut= AnimationUtils.loadAnimation(getContext(),R.anim.out_animation);
+        animationOut.setDuration(mAnimDuration);
+        setOutAnimation(animationOut);
+        setFlipInterval(mFlipInterval);
+
+        startFlipping();
+    }
+
+    @Override
+    public void startFlipping() {
+        super.startFlipping();
+    }
+
     private static int px2sp(Context context, float pxValue) {
         final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (pxValue / fontScale + 0.5f);
     }
-
-    // TODO: 2016/6/28 0028 增加以代码方式设置属性的方法 
 }
