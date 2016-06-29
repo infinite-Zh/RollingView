@@ -65,8 +65,10 @@ public class RollingOverView extends ViewFlipper {
     }
 
 
-    public static int px2sp(Context context, float pxValue) {
+    private static int px2sp(Context context, float pxValue) {
         final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (pxValue / fontScale + 0.5f);
     }
+
+    // TODO: 2016/6/28 0028 增加以代码方式设置属性的方法 
 }
