@@ -12,6 +12,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+/**
+ * RollingView
+ */
 public class RollingOverView extends ViewFlipper {
 
     private int mTextColor=Color.BLACK;
