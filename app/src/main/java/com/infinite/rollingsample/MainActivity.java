@@ -1,5 +1,6 @@
 package com.infinite.rollingsample;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -15,6 +16,10 @@ public class MainActivity extends AppCompatActivity {
         view= (RollingOverView) findViewById(R.id.rollingView);
         String[] content=new String[]{"From class android.widget.ViewAnimator ","比如我们正在开发一个看漫画的应用,","计算机软件及应用"};
         view.setContents(content);
-        view.startFlipping();
+        view.setChildFlipInterval(2000);
+        view.setAnimDuration(500);
+        view.setContentTextColor(Color.WHITE);
+        view.setContentTextSize(16);
+        view.start();
     }
 }
